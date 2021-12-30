@@ -11,7 +11,7 @@ import utils.PageTitleUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class BaseTest {
+public abstract class BaseTesty {
     protected WebDriver driver;
 
     @BeforeAll
