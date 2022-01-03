@@ -11,7 +11,7 @@ import pages.TopMenuPage;
 
 public class CreateAccountTest extends BaseTesty {
     @Test
-    public void shouldCreateNewUserAccountWithRequiredAndNorRequiredData() {
+    public void shouldFillInAllData() {
         //Arrange
         TopMenuPage topMenuPage = new TopMenuPage(driver);
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
@@ -33,7 +33,7 @@ public class CreateAccountTest extends BaseTesty {
     }
 
     @Test
-    public void shouldCreateNewUserAccountWithOnlyRequiredData(){
+    public void shouldCreateNewUserAccountWithOnlyRequiredData() {
         //Arrange
         TopMenuPage topMenuPage = new TopMenuPage(driver);
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
