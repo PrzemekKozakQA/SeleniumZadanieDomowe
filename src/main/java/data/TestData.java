@@ -11,7 +11,7 @@ import java.util.Locale;
 public class TestData {
     private static Faker faker;
 
-    public static Address getValidAddressWithAllInfo() {
+    private static Address getValidAddressWithAllInfo() {
         Address walidAddress = new Address();
         faker = new Faker(new Locale("en-US"));
         walidAddress.setCompany(faker.company().name());
@@ -19,9 +19,8 @@ public class TestData {
         walidAddress.setAddressExtraInfo(faker.address().secondaryAddress());
         walidAddress.setCity(faker.address().city());
         walidAddress.setCountry(Country.UNITED_STATES);
-        walidAddress.setState(State.NEW_YORK);
-        walidAddress.setZipCode(faker.address().zipCode());
-        walidAddress.setCountry(Country.UNITED_STATES);
+        walidAddress.setState(State.ALABAMA);
+        walidAddress.setZipCode(String.valueOf(faker.number().randomNumber(5, true)));
         walidAddress.setMobilePhone(faker.phoneNumber().cellPhone());
         walidAddress.setAlias("My address");
         walidAddress.setOtherInfo("My home address");

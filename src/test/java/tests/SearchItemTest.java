@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import pages.ItemsListPage;
 import pages.TopMenuPage;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchItemTest extends BaseTesty {
     protected final String ITEM_NAME = "Blouse";

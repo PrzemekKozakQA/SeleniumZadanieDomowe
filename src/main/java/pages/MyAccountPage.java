@@ -3,9 +3,10 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.MethodUtils;
 
-public class MyAccountPage extends BasePage{
+import static utils.MethodUtils.isWebElementDisplayed;
+
+public class MyAccountPage extends BasePage {
     @FindBy(className = "info-account")
     WebElement welcomeToAccount;
 
@@ -13,7 +14,7 @@ public class MyAccountPage extends BasePage{
         super(driver);
     }
 
-    public boolean isWelcomeMessageDisplayed(){
-        return MethodUtils.isWebElementDisplayed(welcomeToAccount, wait);
+    public boolean isWelcomeMessageDisplayed() {
+        return isWebElementDisplayed(welcomeToAccount);
     }
 }
