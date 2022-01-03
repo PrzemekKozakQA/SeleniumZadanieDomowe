@@ -1,4 +1,4 @@
-package data;
+package testData;
 
 import com.github.javafaker.Faker;
 import enums.*;
@@ -8,7 +8,7 @@ import model.User;
 import java.time.Month;
 import java.util.Locale;
 
-public class TestData {
+public class UsersData {
     private static Faker faker;
 
     private static Address getValidAddressWithAllInfo() {

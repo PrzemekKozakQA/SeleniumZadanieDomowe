@@ -6,7 +6,7 @@ import pages.TopMenuPage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SearchItemTest extends BaseTesty {
+public class SearchItemTest extends BaseTest {
     protected final String ITEM_NAME = "Blouse";
 
     @Test

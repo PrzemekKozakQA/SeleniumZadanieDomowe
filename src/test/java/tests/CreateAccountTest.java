@@ -1,6 +1,6 @@
 package tests;
 
-import data.TestData;
+import testData.UsersData;
 import model.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,13 +9,35 @@ import pages.CreateAccountPage;
 import pages.MyAccountPage;
 import pages.TopMenuPage;
 
-public class CreateAccountTest extends BaseTesty {
+import static utils.MethodUtils.*;
+
+public class CreateAccountTest extends BaseTest {
+    @Test
+    public void shouldCreateNewUserAccountWithOnlyRequiredData() {
+        //Arrange
+        TopMenuPage topMenuPage = new TopMenuPage(driver);
+        AuthenticationPage authenticationPage = new AuthenticationPage(driver);
+        User allDataUser = UsersData.getValidUserWithAllData();
+        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        //Act
+        topMenuPage.clickSignIn();
+        authenticationPage.createAccountWithEmail(allDataUser.getEmail());
+        createAccountPage.getPersonalInformationPage().fillInRequiredPersonalInformation(allDataUser);
+        createAccountPage.getAddressPage().fillInRequiredAddressInformation(allDataUser.getAddress());
+        createAccountPage.submitRegistration();
+        //Assert
+        MyAccountPage myAccountPage = new MyAccountPage(driver);
+        Assertions.assertThat(myAccountPage.isWelcomeMessageDisplayed()).isTrue();
+        //Save test data
+        saveNewUserCredentialsToFile(allDataUser);
+    }
+
     @Test
     public void shouldFillInAllData() {
         //Arrange
         TopMenuPage topMenuPage = new TopMenuPage(driver);
         AuthenticationPage authenticationPage = new AuthenticationPage(driver);
-        User allDataUser = TestData.getValidUserWithAllData();
+        User allDataUser = UsersData.getValidUserWithAllData();
         CreateAccountPage createAccountPage = new CreateAccountPage(driver);
         //Act
         topMenuPage.clickSignIn();
@@ -30,23 +52,7 @@ public class CreateAccountTest extends BaseTesty {
         //Assert
         MyAccountPage myAccountPage = new MyAccountPage(driver);
         Assertions.assertThat(myAccountPage.isWelcomeMessageDisplayed()).isTrue();
-    }
-
-    @Test
-    public void shouldCreateNewUserAccountWithOnlyRequiredData() {
-        //Arrange
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
-        AuthenticationPage authenticationPage = new AuthenticationPage(driver);
-        User allDataUser = TestData.getValidUserWithAllData();
-        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
-        //Act
-        topMenuPage.clickSignIn();
-        authenticationPage.createAccountWithEmail(allDataUser.getEmail());
-        createAccountPage.getPersonalInformationPage().fillInRequiredPersonalInformation(allDataUser);
-        createAccountPage.getAddressPage().fillInRequiredAddressInformation(allDataUser.getAddress());
-        createAccountPage.submitRegistration();
-        //Assert
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
-        Assertions.assertThat(myAccountPage.isWelcomeMessageDisplayed()).isTrue();
+        //Save test data
+        saveNewUserCredentialsToFile(allDataUser);
     }
 }

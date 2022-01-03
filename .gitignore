@@ -76,3 +76,6 @@ fabric.properties
 
 #Allure reports
 /.allure/
+
+#Output test files
+outputTestFiles

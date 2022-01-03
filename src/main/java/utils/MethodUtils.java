@@ -2,11 +2,16 @@ package utils;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import model.User;
 import org.awaitility.Awaitility;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -47,5 +52,23 @@ public class MethodUtils {
     public static void awaitUntilElementIsDisplayed(WebElement element) {
         Awaitility.await().atMost(10, TimeUnit.SECONDS).ignoreExceptions()
                 .until(() -> (element.getSize().width > 0 && element.getSize().height > 0));
+    }
+
+    public static void saveNewUserCredentialsToFile(User user) {
+        try {
+            PrintWriter writer = new PrintWriter("outputTestFiles/test_user_credentials " + getActualDateAndTime() + ".txt");
+            writer.println("Login: " + user.getEmail());
+            writer.println("Password: " + user.getPassword());
+            writer.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String getActualDateAndTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(now).toString();
     }
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import pages.TopMenuPage;
 import pages.WomenCategoryPage;
 
-public class WomenCategoryTests extends BaseTesty {
+public class WomenCategoryTests extends BaseTest {
     @Test
     public void shouldEveryItemInWomenCategoryHasPriceGreaterThanZero() {
         //Arrange
