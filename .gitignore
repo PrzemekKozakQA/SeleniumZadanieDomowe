@@ -79,3 +79,4 @@ fabric.properties
 
 #Output test files
 outputTestFiles
+/target/
