@@ -80,3 +80,4 @@ fabric.properties
 #Output test files
 outputTestFiles
 /target/
+/allure-results/
