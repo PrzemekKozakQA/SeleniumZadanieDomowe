@@ -1,6 +1,5 @@
 package tests;
 
-import testData.UsersData;
 import model.User;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,8 +7,9 @@ import pages.AuthenticationPage;
 import pages.CreateAccountPage;
 import pages.MyAccountPage;
 import pages.TopMenuPage;
+import testData.UsersData;
 
-import static utils.MethodUtils.*;
+import static utils.MethodUtils.saveNewUserCredentialsToFile;
 
 public class CreateAccountTest extends BaseTest {
     @Test
