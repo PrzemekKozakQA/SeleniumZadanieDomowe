@@ -8,8 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
 import utils.MethodUtils;
 
+import java.nio.file.WatchKey;
 import java.time.Month;
 
 public class PersonalInformationPage extends BasePage {
@@ -48,7 +50,8 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void chosePersonalTitle(PersonalTitle title) {
-        wait.until(ExpectedConditions.visibilityOf(mrsTitleMark));
+//        wait.until(ExpectedConditions.visibilityOf(mrsTitleMark));
+        wait.until(ExpectedConditions.elementToBeClickable(mrsTitleMark));
         if (title.equals(PersonalTitle.MR)) {
             mrTitleMark.click();
         } else {
@@ -62,6 +65,7 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void enterLastName(String lastName) {
+        wait.until(ExpectedConditions.elementToBeClickable(lastNameInput));
         lastNameInput.sendKeys(lastName);
     }
 
@@ -101,4 +105,11 @@ public class PersonalInformationPage extends BasePage {
         selectMonthOfBirth(user.getMonthOfBirth());
         selectYearOfBirth(user.getYearOfBirth());
     }
+    public void waitFor(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    public WebElement getWebEl(){
+        return mrsTitleMark;
+    }
+
 }

@@ -21,7 +21,7 @@ public class MethodUtils {
         return isDisplayed;
     }
 
-    public static void selectByText(WebElement webElement, String text) {
+    public static void selectByText(WebElement webElement, String text, Wait wait) {
         Select select = new Select(webElement);
         select.selectByVisibleText(text);
     }

@@ -63,7 +63,7 @@ public class AddressPage extends BasePage {
     }
 
     public void selectState(State state) {
-        MethodUtils.selectByText(stateSelect, state.getValue());
+        MethodUtils.selectByText(stateSelect, state.getValue(), wait);
     }
 
     public void enterZipCode(String zipCode) {
@@ -71,7 +71,7 @@ public class AddressPage extends BasePage {
     }
 
     public void selectCountry(Country country) {
-        MethodUtils.selectByText(countrySelect, country.getValue());
+        MethodUtils.selectByText(countrySelect, country.getValue(), wait);
     }
 
     public void enterOtherInfo(String otherInfo) {
