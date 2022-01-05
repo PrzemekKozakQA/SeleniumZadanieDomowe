@@ -3,9 +3,11 @@ package tests;
 import org.junit.jupiter.api.Test;
 import pages.ItemsListPage;
 import pages.TopMenuPage;
+import utils.SearchItemUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static utils.SearchItemUtils.*;
+
 
 public class SearchItemTest extends BaseTest {
     @Test
