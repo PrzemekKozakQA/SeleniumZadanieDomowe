@@ -8,13 +8,13 @@ import static utils.MethodUtils.isWebElementDisplayed;
 
 public class MyAccountPage extends BasePage {
     @FindBy(className = "info-account")
-    WebElement welcomeToAccount;
+    WebElement welcomeToAccountInfo;
 
     public MyAccountPage(WebDriver driver) {
         super(driver);
     }
 
     public boolean isWelcomeMessageDisplayed() {
-        return isWebElementDisplayed(welcomeToAccount);
+        return isWebElementDisplayed(welcomeToAccountInfo);
     }
 }

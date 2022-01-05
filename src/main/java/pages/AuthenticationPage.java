@@ -8,7 +8,6 @@ import static utils.MethodUtils.clickWhenVisible;
 import static utils.MethodUtils.typeInInput;
 
 public class AuthenticationPage extends BasePage {
-
     @FindBy(id = "email_create")
     WebElement createAccountEmailInput;
 
