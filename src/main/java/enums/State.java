@@ -60,5 +60,5 @@ public enum State {
     WISCONSIN("Wisconsin"),
     WYOMING("Wyoming");
 
-    private String value;
+    private final String value;
 }

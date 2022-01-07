@@ -3,7 +3,9 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static utils.MethodUtils.clickWhenVisible;
+import static utils.MethodUtils.typeInInput;
 
 public class TopMenuPage extends BasePage {
     @FindBy(xpath = "//a[@title='Women']")
@@ -23,16 +25,15 @@ public class TopMenuPage extends BasePage {
     }
 
     public void clickOnWomenCategoryLink() {
-        womenCategory.click();
+        clickWhenVisible(womenCategory);
     }
 
     public void searchItemByName(String itemName) {
-        searchingInput.sendKeys(itemName);
-        submitSearchButton.click();
+        typeInInput(searchingInput, itemName);
+        clickWhenVisible(submitSearchButton);
     }
 
     public void clickSignIn() {
-        wait.until(ExpectedConditions.visibilityOf(signInButton));
-        signInButton.click();
+        clickWhenVisible(signInButton);
     }
 }

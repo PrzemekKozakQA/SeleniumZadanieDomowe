@@ -6,7 +6,9 @@ import model.Address;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.MethodUtils;
+
+import static utils.MethodUtils.selectByText;
+import static utils.MethodUtils.typeInInput;
 
 public class AddressPage extends BasePage {
     @FindBy(id = "company")
@@ -21,7 +23,7 @@ public class AddressPage extends BasePage {
     @FindBy(id = "city")
     WebElement cityInput;
 
-    @FindBy(id = "id_state")
+    @FindBy(name = "id_state")
     WebElement stateSelect;
 
     @FindBy(id = "postcode")
@@ -47,47 +49,47 @@ public class AddressPage extends BasePage {
     }
 
     public void enterCompany(String company) {
-        companyInput.sendKeys(company);
+        typeInInput(companyInput, company);
     }
 
     public void enterAddress(String address) {
-        addressInput.sendKeys(address);
+        typeInInput(addressInput, address);
     }
 
     public void enterAddressSecondLine(String address2) {
-        addressSecondLineInput.sendKeys(address2);
+        typeInInput(addressSecondLineInput, address2);
     }
 
     public void enterCity(String city) {
-        cityInput.sendKeys(city);
+        typeInInput(cityInput, city);
     }
 
     public void selectState(State state) {
-        MethodUtils.selectByText(stateSelect, state.getValue(), wait);
+        selectByText(stateSelect, state.getValue());
     }
 
     public void enterZipCode(String zipCode) {
-        zipCodeInput.sendKeys(zipCode);
+        typeInInput(zipCodeInput, zipCode);
     }
 
     public void selectCountry(Country country) {
-        MethodUtils.selectByText(countrySelect, country.getValue(), wait);
+        selectByText(countrySelect, country.getValue());
     }
 
     public void enterOtherInfo(String otherInfo) {
-        otherInfoInput.sendKeys(otherInfo);
+        typeInInput(otherInfoInput, otherInfo);
     }
 
     public void enterMobilePhone(String mobile) {
-        mobilePhoneInput.sendKeys(mobile);
+        typeInInput(mobilePhoneInput, mobile);
     }
 
     public void enterHomePhone(String phone) {
-        homePhoneInput.sendKeys(phone);
+        typeInInput(homePhoneInput, phone);
     }
 
     public void enterAlias(String alias) {
-        aliasInput.sendKeys(alias);
+        typeInInput(aliasInput, alias);
     }
 
     public void fillInRequiredAddressInformation(Address address) {

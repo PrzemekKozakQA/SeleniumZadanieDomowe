@@ -38,7 +38,7 @@ public enum DayOfBirth {
     D30(30),
     D31(31);
 
-    private int value;
+    private final int value;
 
     @Override
     public String toString() {

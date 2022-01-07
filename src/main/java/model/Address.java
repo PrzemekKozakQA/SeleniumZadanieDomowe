@@ -21,5 +21,4 @@ public class Address {
     private String mobilePhone;
     private String alias;
     private String otherInfo;
-
 }

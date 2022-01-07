@@ -8,5 +8,5 @@ import lombok.Getter;
 public enum PersonalTitle {
     MR("Mr."), MRS("Mrs.");
 
-    private String value;
+    private final String value;
 }

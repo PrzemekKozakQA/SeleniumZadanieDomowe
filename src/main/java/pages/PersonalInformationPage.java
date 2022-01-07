@@ -7,12 +7,10 @@ import model.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import utils.MethodUtils;
 
-import java.nio.file.WatchKey;
 import java.time.Month;
+
+import static utils.MethodUtils.*;
 
 public class PersonalInformationPage extends BasePage {
     @FindBy(id = "id_gender1")
@@ -50,8 +48,7 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void chosePersonalTitle(PersonalTitle title) {
-//        wait.until(ExpectedConditions.visibilityOf(mrsTitleMark));
-        wait.until(ExpectedConditions.elementToBeClickable(mrsTitleMark));
+        awaitUntilElementIsDisplayed(mrsTitleMark);
         if (title.equals(PersonalTitle.MR)) {
             mrTitleMark.click();
         } else {
@@ -60,37 +57,36 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void enterFirstName(String firstName) {
-        wait.until(ExpectedConditions.visibilityOf(firstNameInput));
-        firstNameInput.sendKeys(firstName);
+        awaitUntilElementIsDisplayed(firstNameInput);
+        typeInInput(firstNameInput, firstName);
     }
 
     public void enterLastName(String lastName) {
-        wait.until(ExpectedConditions.elementToBeClickable(lastNameInput));
-        lastNameInput.sendKeys(lastName);
+        typeInInput(lastNameInput, lastName);
     }
 
     public void enterPassword(String password) {
-        passwordInput.sendKeys(password);
+        typeInInput(passwordInput, password);
     }
 
     public void selectDayOfBirth(DayOfBirth day) {
-        MethodUtils.selectByValue(dayOfBirthSelect, day.toString());
+        selectByValue(dayOfBirthSelect, day.toString());
     }
 
     public void selectMonthOfBirth(Month month) {
-        MethodUtils.selectByValue(monthOfBirthSelect, String.valueOf(month.getValue()));
+        selectByValue(monthOfBirthSelect, String.valueOf(month.getValue()));
     }
 
     public void selectYearOfBirth(YearOfBirth year) {
-        MethodUtils.selectByValue(yearOfBirthSelect, year.toString());
+        selectByValue(yearOfBirthSelect, year.toString());
     }
 
     public void markNewsletter() {
-        newsletterCheckbox.click();
+        clickWhenVisible(newsletterCheckbox);
     }
 
     public void markSpecialOffers() {
-        specialOffersCheckbox.click();
+        clickWhenVisible(specialOffersCheckbox);
     }
 
     public void fillInRequiredPersonalInformation(User user) {
@@ -105,11 +101,4 @@ public class PersonalInformationPage extends BasePage {
         selectMonthOfBirth(user.getMonthOfBirth());
         selectYearOfBirth(user.getYearOfBirth());
     }
-    public void waitFor(WebElement element){
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-    public WebElement getWebEl(){
-        return mrsTitleMark;
-    }
-
 }

@@ -3,10 +3,11 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static utils.MethodUtils.clickWhenVisible;
+import static utils.MethodUtils.typeInInput;
 
 public class AuthenticationPage extends BasePage {
-
     @FindBy(id = "email_create")
     WebElement createAccountEmailInput;
 
@@ -18,8 +19,7 @@ public class AuthenticationPage extends BasePage {
     }
 
     public void createAccountWithEmail(String email) {
-        wait.until(ExpectedConditions.visibilityOf(createAccountEmailInput));
-        createAccountEmailInput.sendKeys(email);
-        submitCreateAccountButton.click();
+        typeInInput(createAccountEmailInput, email);
+        clickWhenVisible(submitCreateAccountButton);
     }
 }

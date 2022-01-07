@@ -4,22 +4,22 @@ import org.junit.jupiter.api.Test;
 import pages.ItemsListPage;
 import pages.TopMenuPage;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static utils.SearchItemUtils.ITEM_TO_SEARCH;
 
-public class SearchItemTest extends BaseTesty {
-    protected final String ITEM_NAME = "Blouse";
 
+public class SearchItemTest extends BaseTest {
     @Test
     public void shouldSeeItemsWithSearchedNameAndPrice() {
         //Arrange
         TopMenuPage topMenuPage = new TopMenuPage(driver);
         ItemsListPage itemsListPage = new ItemsListPage(driver);
         //Act
-        topMenuPage.searchItemByName(ITEM_NAME);
+        topMenuPage.searchItemByName(ITEM_TO_SEARCH);
         boolean isAllProductsContainSearchedName = itemsListPage
                 .getItemsNames()
                 .stream()
-                .allMatch(name -> name.toLowerCase().contains(ITEM_NAME.toLowerCase()));
+                .allMatch(name -> name.toLowerCase().contains(ITEM_TO_SEARCH.toLowerCase()));
         //Assert
         assertThat(itemsListPage.isItemsCounterDisplayed()).isTrue();
         assertThat(itemsListPage.getItemsList()).isNotEmpty();

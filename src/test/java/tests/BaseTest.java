@@ -8,10 +8,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import utils.BaseUrlUtils;
 import utils.PageTitleUtils;
+import utils.TestConfigurationUtils;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class BaseTesty {
+public abstract class BaseTest {
     protected WebDriver driver;
 
     @BeforeAll
@@ -21,8 +22,7 @@ public abstract class BaseTesty {
 
     @BeforeEach
     public void setupTest() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        driver = new ChromeDriver(TestConfigurationUtils.setChromeOptions());
         driver.get(BaseUrlUtils.BASE_URL);
         assertThat(driver.getTitle()).isEqualTo(PageTitleUtils.HOME_PAGE_TITLE);
     }

@@ -8,5 +8,5 @@ import lombok.Getter;
 public enum Country {
     UNITED_STATES("United States");
 
-    private String value;
+    private final String value;
 }
