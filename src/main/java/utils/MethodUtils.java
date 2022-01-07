@@ -69,6 +69,6 @@ public class MethodUtils {
     public static String getActualDateAndTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
         LocalDateTime now = LocalDateTime.now();
-        return formatter.format(now).toString();
+        return formatter.format(now);
     }
 }
