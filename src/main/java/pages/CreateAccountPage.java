@@ -22,6 +22,6 @@ public class CreateAccountPage extends BasePage {
     }
 
     public void submitRegistration() {
-        clickWhenVisible(registerButton);
+        clickWhenVisible(registerButton, wait);
     }
 }

@@ -19,7 +19,7 @@ public class AuthenticationPage extends BasePage {
     }
 
     public void createAccountWithEmail(String email) {
-        typeInInput(createAccountEmailInput, email);
-        clickWhenVisible(submitCreateAccountButton);
+        typeInInput(createAccountEmailInput, email, wait);
+        clickWhenVisible(submitCreateAccountButton, wait);
     }
 }

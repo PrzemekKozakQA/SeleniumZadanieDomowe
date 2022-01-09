@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static utils.MethodUtils.isWebElementDisplayed;
+import static utils.MethodUtils.waitUntilElementIsDisplayed;
 
 public class ItemsListPage extends BasePage {
     @FindBy(xpath = "//div[@class='right-block']//span[@class='price product-price']")
@@ -39,7 +40,7 @@ public class ItemsListPage extends BasePage {
     }
 
     public List<BigDecimal> getItemsPricesList() {
-        (itemsPrices).forEach(MethodUtils::awaitUntilElementIsDisplayed);
+        (itemsPrices).forEach(el->waitUntilElementIsDisplayed(el, wait));
         return itemsPrices.stream()
                 .map(WebElement::getText)
                 .map(el -> el.replaceAll("[^0-9.]", ""))

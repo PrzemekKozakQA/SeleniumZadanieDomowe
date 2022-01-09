@@ -48,7 +48,7 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void chosePersonalTitle(PersonalTitle title) {
-        awaitUntilElementIsDisplayed(mrsTitleMark);
+        waitUntilElementIsDisplayed(mrsTitleMark, wait);
         if (title.equals(PersonalTitle.MR)) {
             mrTitleMark.click();
         } else {
@@ -57,36 +57,36 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void enterFirstName(String firstName) {
-        awaitUntilElementIsDisplayed(firstNameInput);
-        typeInInput(firstNameInput, firstName);
+        waitUntilElementIsDisplayed(firstNameInput, wait);
+        typeInInput(firstNameInput, firstName, wait);
     }
 
     public void enterLastName(String lastName) {
-        typeInInput(lastNameInput, lastName);
+        typeInInput(lastNameInput, lastName, wait);
     }
 
     public void enterPassword(String password) {
-        typeInInput(passwordInput, password);
+        typeInInput(passwordInput, password, wait);
     }
 
     public void selectDayOfBirth(DayOfBirth day) {
-        selectByValue(dayOfBirthSelect, day.toString());
+        selectByValue(dayOfBirthSelect, day.toString(), wait);
     }
 
     public void selectMonthOfBirth(Month month) {
-        selectByValue(monthOfBirthSelect, String.valueOf(month.getValue()));
+        selectByValue(monthOfBirthSelect, String.valueOf(month.getValue()), wait);
     }
 
     public void selectYearOfBirth(YearOfBirth year) {
-        selectByValue(yearOfBirthSelect, year.toString());
+        selectByValue(yearOfBirthSelect, year.toString(), wait);
     }
 
     public void markNewsletter() {
-        clickWhenVisible(newsletterCheckbox);
+        clickWhenVisible(newsletterCheckbox, wait);
     }
 
     public void markSpecialOffers() {
-        clickWhenVisible(specialOffersCheckbox);
+        clickWhenVisible(specialOffersCheckbox, wait);
     }
 
     public void fillInRequiredPersonalInformation(User user) {

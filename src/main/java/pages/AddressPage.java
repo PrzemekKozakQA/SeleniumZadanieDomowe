@@ -49,47 +49,47 @@ public class AddressPage extends BasePage {
     }
 
     public void enterCompany(String company) {
-        typeInInput(companyInput, company);
+        typeInInput(companyInput, company, wait);
     }
 
     public void enterAddress(String address) {
-        typeInInput(addressInput, address);
+        typeInInput(addressInput, address, wait);
     }
 
     public void enterAddressSecondLine(String address2) {
-        typeInInput(addressSecondLineInput, address2);
+        typeInInput(addressSecondLineInput, address2, wait);
     }
 
     public void enterCity(String city) {
-        typeInInput(cityInput, city);
+        typeInInput(cityInput, city, wait);
     }
 
     public void selectState(State state) {
-        selectByText(stateSelect, state.getValue());
+        selectByText(stateSelect, state.getValue(), wait);
     }
 
     public void enterZipCode(String zipCode) {
-        typeInInput(zipCodeInput, zipCode);
+        typeInInput(zipCodeInput, zipCode, wait);
     }
 
     public void selectCountry(Country country) {
-        selectByText(countrySelect, country.getValue());
+        selectByText(countrySelect, country.getValue(), wait);
     }
 
     public void enterOtherInfo(String otherInfo) {
-        typeInInput(otherInfoInput, otherInfo);
+        typeInInput(otherInfoInput, otherInfo, wait);
     }
 
     public void enterMobilePhone(String mobile) {
-        typeInInput(mobilePhoneInput, mobile);
+        typeInInput(mobilePhoneInput, mobile, wait);
     }
 
     public void enterHomePhone(String phone) {
-        typeInInput(homePhoneInput, phone);
+        typeInInput(homePhoneInput, phone, wait);
     }
 
     public void enterAlias(String alias) {
-        typeInInput(aliasInput, alias);
+        typeInInput(aliasInput, alias, wait);
     }
 
     public void fillInRequiredAddressInformation(Address address) {

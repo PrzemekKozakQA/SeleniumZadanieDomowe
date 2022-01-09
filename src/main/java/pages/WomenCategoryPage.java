@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static utils.MethodUtils.awaitUntilElementIsDisplayed;
+import static utils.MethodUtils.waitUntilElementIsDisplayed;
 
 @Getter
 public class WomenCategoryPage extends BasePage {
@@ -19,7 +19,7 @@ public class WomenCategoryPage extends BasePage {
     }
 
     public String getCategoryName() {
-        awaitUntilElementIsDisplayed(categoryName);
+        waitUntilElementIsDisplayed(categoryName, wait);
         return categoryName.getText();
     }
 }

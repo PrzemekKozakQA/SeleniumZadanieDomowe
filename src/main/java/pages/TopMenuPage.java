@@ -25,15 +25,15 @@ public class TopMenuPage extends BasePage {
     }
 
     public void clickOnWomenCategoryLink() {
-        clickWhenVisible(womenCategory);
+        clickWhenVisible(womenCategory, wait);
     }
 
     public void searchItemByName(String itemName) {
-        typeInInput(searchingInput, itemName);
-        clickWhenVisible(submitSearchButton);
+        typeInInput(searchingInput, itemName, wait);
+        clickWhenVisible(submitSearchButton, wait);
     }
 
     public void clickSignIn() {
-        clickWhenVisible(signInButton);
+        clickWhenVisible(signInButton, wait);
     }
 }
