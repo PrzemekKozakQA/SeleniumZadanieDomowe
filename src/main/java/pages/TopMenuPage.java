@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static utils.MethodUtils.clickWhenVisible;
+import static utils.MethodUtils.clickWhenAvailable;
 import static utils.MethodUtils.typeInInput;
 
 public class TopMenuPage extends BasePage {
@@ -25,15 +25,15 @@ public class TopMenuPage extends BasePage {
     }
 
     public void clickOnWomenCategoryLink() {
-        clickWhenVisible(womenCategory, wait);
+        clickWhenAvailable(womenCategory, wait);
     }
 
     public void searchItemByName(String itemName) {
         typeInInput(searchingInput, itemName, wait);
-        clickWhenVisible(submitSearchButton, wait);
+        clickWhenAvailable(submitSearchButton, wait);
     }
 
     public void clickSignIn() {
-        clickWhenVisible(signInButton, wait);
+        clickWhenAvailable(signInButton, wait);
     }
 }

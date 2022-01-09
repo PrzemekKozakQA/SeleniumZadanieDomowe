@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static utils.MethodUtils.clickWhenVisible;
+import static utils.MethodUtils.clickWhenAvailable;
 import static utils.MethodUtils.typeInInput;
 
 public class AuthenticationPage extends BasePage {
@@ -20,6 +20,6 @@ public class AuthenticationPage extends BasePage {
 
     public void createAccountWithEmail(String email) {
         typeInInput(createAccountEmailInput, email, wait);
-        clickWhenVisible(submitCreateAccountButton, wait);
+        clickWhenAvailable(submitCreateAccountButton, wait);
     }
 }

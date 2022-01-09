@@ -28,6 +28,13 @@ public class MethodUtils {
         return isDisplayed;
     }
 
+    public static void waitUntilElementIsDisplayed(WebElement element, FluentWait<WebDriver> wait) {
+        wait.withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
+        wait.until((ExpectedCondition<Boolean>) (webDriver) -> element.getSize().width > 0);
+    }
+
     public static void selectByText(WebElement element, String text, FluentWait<WebDriver> wait) {
         waitUntilElementIsDisplayed(element, wait);
         Select select = new Select(element);
@@ -40,7 +47,7 @@ public class MethodUtils {
         select.selectByValue(text);
     }
 
-    public static void clickWhenVisible(WebElement element, FluentWait<WebDriver> wait) {
+    public static void clickWhenAvailable(WebElement element, FluentWait<WebDriver> wait) {
         waitUntilElementIsDisplayed(element, wait);
         element.click();
     }
@@ -50,11 +57,10 @@ public class MethodUtils {
         input.sendKeys(string);
     }
 
-    public static void waitUntilElementIsDisplayed(WebElement element, FluentWait<WebDriver> wait) {
-        wait.withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1))
-                .ignoring(NoSuchElementException.class);
-        wait.until((ExpectedCondition<Boolean>) (webDriver) -> element.getSize().width > 0);
+    public static String getActualDateAndTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(now);
     }
 
     public static void saveNewUserCredentialsToFile(User user) {
@@ -68,11 +74,5 @@ public class MethodUtils {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public static String getActualDateAndTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
-        LocalDateTime now = LocalDateTime.now();
-        return formatter.format(now);
     }
 }

@@ -82,11 +82,11 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void markNewsletter() {
-        clickWhenVisible(newsletterCheckbox, wait);
+        clickWhenAvailable(newsletterCheckbox, wait);
     }
 
     public void markSpecialOffers() {
-        clickWhenVisible(specialOffersCheckbox, wait);
+        clickWhenAvailable(specialOffersCheckbox, wait);
     }
 
     public void fillInRequiredPersonalInformation(User user) {
