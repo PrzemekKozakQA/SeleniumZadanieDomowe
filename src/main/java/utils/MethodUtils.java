@@ -17,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MethodUtils {
     public static boolean isWebElementDisplayed(WebElement element) {
-        awaitUntilElementIsDisplayed(element);
         boolean isDisplayed = false;
         try {
             isDisplayed = element.isDisplayed();
