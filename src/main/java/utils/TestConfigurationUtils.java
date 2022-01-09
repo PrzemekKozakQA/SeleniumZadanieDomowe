@@ -12,7 +12,7 @@ import java.util.Properties;
 public class TestConfigurationUtils {
     private static Properties config;
 
-    public static ChromeOptions setChromeOptions() {
+    public static ChromeOptions getChromeOptions() {
         try {
             config = new Properties();
             FileInputStream configFile = new FileInputStream("src/test/java/testConfiguration/TestConfig.properties");

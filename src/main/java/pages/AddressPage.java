@@ -56,8 +56,8 @@ public class AddressPage extends BasePage {
         typeInInput(addressInput, address);
     }
 
-    public void enterAddressSecondLine(String address2) {
-        typeInInput(addressSecondLineInput, address2);
+    public void enterAddressSecondLine(String addressNextLine) {
+        typeInInput(addressSecondLineInput, addressNextLine);
     }
 
     public void enterCity(String city) {

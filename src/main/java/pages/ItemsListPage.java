@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static utils.MethodUtils.awaitUntilElementIsDisplayed;
 import static utils.MethodUtils.isWebElementDisplayed;
 
 public class ItemsListPage extends BasePage {
@@ -48,16 +49,17 @@ public class ItemsListPage extends BasePage {
     }
 
     public boolean isItemsCounterDisplayed() {
+        awaitUntilElementIsDisplayed(itemsCounter);
         return isWebElementDisplayed(itemsCounter);
     }
 
     public boolean isAllItemsPricesDisplayed() {
-        return itemsList.stream()
+        return itemsPrices.stream()
                 .allMatch(MethodUtils::isWebElementDisplayed);
     }
 
     public boolean isAllPricesAboveZero() {
         return getItemsPricesList().stream()
-                .anyMatch(price -> price.compareTo(BigDecimal.ZERO) > 0);
+                .allMatch(price -> price.compareTo(BigDecimal.ZERO) > 0);
     }
 }

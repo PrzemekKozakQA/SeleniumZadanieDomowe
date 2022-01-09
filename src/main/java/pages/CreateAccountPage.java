@@ -9,8 +9,8 @@ import static utils.MethodUtils.clickWhenAvailable;
 
 @Getter
 public class CreateAccountPage extends BasePage {
-    PersonalInformationPage personalInformationPage;
-    AddressPage addressPage;
+    private PersonalInformationPage personalInformationPage;
+    private AddressPage addressPage;
 
     @FindBy(id = "submitAccount")
     WebElement registerButton;

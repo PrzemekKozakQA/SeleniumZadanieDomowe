@@ -22,7 +22,7 @@ public abstract class BaseTest {
 
     @BeforeEach
     public void setupTest() {
-        driver = new ChromeDriver(TestConfigurationUtils.setChromeOptions());
+        driver = new ChromeDriver(TestConfigurationUtils.getChromeOptions());
         driver.get(BaseUrlUtils.BASE_URL);
         assertThat(driver.getTitle()).isEqualTo(PageTitleUtils.HOME_PAGE_TITLE);
     }

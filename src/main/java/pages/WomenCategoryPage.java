@@ -10,6 +10,7 @@ import static utils.MethodUtils.awaitUntilElementIsDisplayed;
 @Getter
 public class WomenCategoryPage extends BasePage {
     private ItemsListPage itemsListPage;
+
     @FindBy(className = "cat-name")
     WebElement categoryName;
 
