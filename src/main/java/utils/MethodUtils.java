@@ -61,7 +61,8 @@ public class MethodUtils {
 
     public static void saveNewUserCredentialsToFile(User user) {
         try {
-            PrintWriter writer = new PrintWriter("outputTestFiles/test_user_credentials " + getActualDateAndTime() + ".txt");
+            PrintWriter writer = new PrintWriter("outputTestFiles/test_user_credentials "
+                    + getActualDateAndTime() + ".properties");
             writer.println("Login=" + user.getEmail());
             writer.println("Password=" + user.getPassword());
             writer.close();
