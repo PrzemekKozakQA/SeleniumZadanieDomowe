@@ -26,6 +26,11 @@ public class MethodUtils {
         return isDisplayed;
     }
 
+    public static void awaitUntilElementIsDisplayed(WebElement element) {
+        Awaitility.await().atMost(10, TimeUnit.SECONDS).ignoreExceptions()
+                .until(() -> (element.getSize().width > 0 && element.getSize().height > 0));
+    }
+
     public static void selectByText(WebElement element, String text) {
         awaitUntilElementIsDisplayed(element);
         Select select = new Select(element);
@@ -38,7 +43,7 @@ public class MethodUtils {
         select.selectByValue(text);
     }
 
-    public static void clickWhenVisible(WebElement element) {
+    public static void clickWhenAvailable(WebElement element) {
         awaitUntilElementIsDisplayed(element);
         element.click();
     }
@@ -48,26 +53,21 @@ public class MethodUtils {
         input.sendKeys(string);
     }
 
-    public static void awaitUntilElementIsDisplayed(WebElement element) {
-        Awaitility.await().atMost(10, TimeUnit.SECONDS).ignoreExceptions()
-                .until(() -> (element.getSize().width > 0 && element.getSize().height > 0));
+    public static String getActualDateAndTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
+        LocalDateTime now = LocalDateTime.now();
+        return formatter.format(now);
     }
 
     public static void saveNewUserCredentialsToFile(User user) {
         try {
             PrintWriter writer = new PrintWriter("outputTestFiles/test_user_credentials " + getActualDateAndTime() + ".txt");
-            writer.println("Login: " + user.getEmail());
-            writer.println("Password: " + user.getPassword());
+            writer.println("Login=" + user.getEmail());
+            writer.println("Password=" + user.getPassword());
             writer.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
-
-    public static String getActualDateAndTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH-mm-ss");
-        LocalDateTime now = LocalDateTime.now();
-        return formatter.format(now);
     }
 }

@@ -57,7 +57,6 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void enterFirstName(String firstName) {
-        awaitUntilElementIsDisplayed(firstNameInput);
         typeInInput(firstNameInput, firstName);
     }
 
@@ -82,11 +81,11 @@ public class PersonalInformationPage extends BasePage {
     }
 
     public void markNewsletter() {
-        clickWhenVisible(newsletterCheckbox);
+        clickWhenAvailable(newsletterCheckbox);
     }
 
     public void markSpecialOffers() {
-        clickWhenVisible(specialOffersCheckbox);
+        clickWhenAvailable(specialOffersCheckbox);
     }
 
     public void fillInRequiredPersonalInformation(User user) {

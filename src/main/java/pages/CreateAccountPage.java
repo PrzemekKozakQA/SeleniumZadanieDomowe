@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static utils.MethodUtils.clickWhenVisible;
+import static utils.MethodUtils.clickWhenAvailable;
 
 @Getter
 public class CreateAccountPage extends BasePage {
@@ -22,6 +22,6 @@ public class CreateAccountPage extends BasePage {
     }
 
     public void submitRegistration() {
-        clickWhenVisible(registerButton);
+        clickWhenAvailable(registerButton);
     }
 }
