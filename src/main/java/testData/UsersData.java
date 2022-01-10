@@ -12,34 +12,34 @@ public class UsersData {
     private static Faker faker;
 
     private static Address getValidAddressWithAllInfo() {
-        Address walidAddress = new Address();
+        Address validAddress = new Address();
         faker = new Faker(new Locale("en-US"));
-        walidAddress.setCompany(faker.company().name());
-        walidAddress.setStreet(faker.address().streetName());
-        walidAddress.setAddressExtraInfo(faker.address().secondaryAddress());
-        walidAddress.setCity(faker.address().city());
-        walidAddress.setCountry(Country.UNITED_STATES);
-        walidAddress.setState(State.ALABAMA);
-        walidAddress.setZipCode(String.valueOf(faker.number().randomNumber(5, true)));
-        walidAddress.setMobilePhone(faker.phoneNumber().cellPhone());
-        walidAddress.setAlias("My address");
-        walidAddress.setOtherInfo("My home address");
-        walidAddress.setHomePhone(faker.phoneNumber().subscriberNumber());
-        return walidAddress;
+        validAddress.setCompany(faker.company().name());
+        validAddress.setStreet(faker.address().streetName());
+        validAddress.setAddressExtraInfo(faker.address().secondaryAddress());
+        validAddress.setCity(faker.address().city());
+        validAddress.setCountry(Country.UNITED_STATES);
+        validAddress.setState(State.ALABAMA);
+        validAddress.setZipCode(String.valueOf(faker.number().randomNumber(5, true)));
+        validAddress.setMobilePhone(faker.phoneNumber().cellPhone());
+        validAddress.setAlias("My address");
+        validAddress.setOtherInfo("My home address");
+        validAddress.setHomePhone(faker.phoneNumber().subscriberNumber());
+        return validAddress;
     }
 
     public static User getValidUserWithAllData() {
         faker = new Faker(new Locale("en-US"));
-        User walidUser = new User();
-        walidUser.setEmail(faker.internet().emailAddress());
-        walidUser.setPersonalTitle(PersonalTitle.MR);
-        walidUser.setFirstName(faker.name().firstName());
-        walidUser.setLastName(faker.name().lastName());
-        walidUser.setPassword(faker.internet().password(5, 6));
-        walidUser.setDayOfBirth(DayOfBirth.D1);
-        walidUser.setMonthOfBirth(Month.JANUARY);
-        walidUser.setYearOfBirth(YearOfBirth.Y1994);
-        walidUser.setAddress(getValidAddressWithAllInfo());
-        return walidUser;
+        User validUser = new User();
+        validUser.setEmail(faker.internet().emailAddress());
+        validUser.setPersonalTitle(PersonalTitle.MR);
+        validUser.setFirstName(faker.name().firstName());
+        validUser.setLastName(faker.name().lastName());
+        validUser.setPassword(faker.internet().password(5, 6));
+        validUser.setDayOfBirth(DayOfBirth.D1);
+        validUser.setMonthOfBirth(Month.JANUARY);
+        validUser.setYearOfBirth(YearOfBirth.Y1994);
+        validUser.setAddress(getValidAddressWithAllInfo());
+        return validUser;
     }
 }

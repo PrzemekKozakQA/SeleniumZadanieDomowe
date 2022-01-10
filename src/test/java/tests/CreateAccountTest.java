@@ -12,13 +12,19 @@ import testData.UsersData;
 import static utils.MethodUtils.saveNewUserCredentialsToFile;
 
 public class CreateAccountTest extends BaseTest {
+    private TopMenuPage topMenuPage;
+    private AuthenticationPage authenticationPage;
+    private CreateAccountPage createAccountPage;
+    private MyAccountPage myAccountPage;
+
     @Test
     public void shouldCreateNewUserAccountWithOnlyRequiredData() {
         //Arrange
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
-        AuthenticationPage authenticationPage = new AuthenticationPage(driver);
+        topMenuPage = new TopMenuPage(driver);
+        authenticationPage = new AuthenticationPage(driver);
         User allDataUser = UsersData.getValidUserWithAllData();
-        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        createAccountPage = new CreateAccountPage(driver);
+        myAccountPage = new MyAccountPage(driver);
         //Act
         topMenuPage.clickSignIn();
         authenticationPage.createAccountWithEmail(allDataUser.getEmail());
@@ -26,7 +32,6 @@ public class CreateAccountTest extends BaseTest {
         createAccountPage.getAddressPage().fillInRequiredAddressInformation(allDataUser.getAddress());
         createAccountPage.submitRegistration();
         //Assert
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
         Assertions.assertThat(myAccountPage.isWelcomeMessageDisplayed()).isTrue();
         //Save test data
         saveNewUserCredentialsToFile(allDataUser);
@@ -35,10 +40,11 @@ public class CreateAccountTest extends BaseTest {
     @Test
     public void shouldFillInAllData() {
         //Arrange
-        TopMenuPage topMenuPage = new TopMenuPage(driver);
-        AuthenticationPage authenticationPage = new AuthenticationPage(driver);
+        topMenuPage = new TopMenuPage(driver);
+        authenticationPage = new AuthenticationPage(driver);
         User allDataUser = UsersData.getValidUserWithAllData();
-        CreateAccountPage createAccountPage = new CreateAccountPage(driver);
+        createAccountPage = new CreateAccountPage(driver);
+        myAccountPage = new MyAccountPage(driver);
         //Act
         topMenuPage.clickSignIn();
         authenticationPage.createAccountWithEmail(allDataUser.getEmail());
@@ -50,7 +56,6 @@ public class CreateAccountTest extends BaseTest {
         createAccountPage.getAddressPage().fillInNotRequiredAddressInformation(allDataUser.getAddress());
         createAccountPage.submitRegistration();
         //Assert
-        MyAccountPage myAccountPage = new MyAccountPage(driver);
         Assertions.assertThat(myAccountPage.isWelcomeMessageDisplayed()).isTrue();
         //Save test data
         saveNewUserCredentialsToFile(allDataUser);
